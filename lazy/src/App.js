@@ -1,15 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Welcome from './Welcome';
+import ReactDOM from 'react-dom';
 
-function App() {
+import logo, { ReactComponent } from './logo.svg';
+import './App.css';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+       brand: "Codetrain Class",
+      student: "Lacey",
+      color: "red",
+      year: 2019
+    };
+  }
+  render(){
   return ( 
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-           Edit <code>src/App.js</code> and save to reload.
+           
         </p>
        
         <a
@@ -21,11 +32,21 @@ function App() {
           Learn Lacey
         </a>
       </header>
-      <Welcome name="Lacey" />
+      <h1>My {this.state.brand}</h1>
+        <p>
+          It is  {this.state.student},
+
+          {this.state.color},
+
+           {this.state.year}
+        </p>
     </div>
   );
 }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
 
 export default App;
+
 
 
